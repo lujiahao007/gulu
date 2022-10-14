@@ -1,0 +1,26 @@
+{
+  "name": "gulu",
+  "version": "0.0.1",
+  "description": "这个是一个UI框架",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lujiahao007/gulu.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "lujiahao007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lujiahao007/gulu/issues"
+  },
+  "homepage": "https://github.com/lujiahao007/gulu#readme"
+}

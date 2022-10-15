@@ -1,6 +1,7 @@
-new Vue({
-    el: '#app',
-    data: {
-        message: '111111'
-    },
+import Vue from 'vue'
+import Button from './button'
+
+Vue.component('g-button',Button)
+new Vue ({
+    el: "#app"
 })

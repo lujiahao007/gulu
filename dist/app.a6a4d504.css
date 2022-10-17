@@ -5,7 +5,9 @@
   border-radius: var(--border-radius);
   color: var(--color);
   border: 1px solid var(--border-color);
-  padding: 0 1em;
+  padding: 0 0.6em;
+  display: inline-flex;
+  align-items: center;
 }
 .g-button:hover {
   border-color: var(--border-color-hover);
@@ -15,4 +17,14 @@
 }
 .g-button:focus {
   outline: none;
+}
+.g-button .icon {
+  width: 1em;
+  height: 1em;
+}
+.g-button .ml {
+  margin-left: 0.3em;
+}
+.g-button .mr {
+  margin-right: 0.3em;
 }

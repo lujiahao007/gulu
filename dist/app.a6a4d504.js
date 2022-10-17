@@ -12251,6 +12251,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   props: {
     icon: {
@@ -12286,6 +12287,11 @@ exports.default = _default;
       attrs: { dir: _vm.iconPosition === "right" ? "rtl" : "ltr" },
     },
     [
+      _c("g-icon", {
+        staticClass: "g-icon-loading",
+        attrs: { name: "loading" },
+      }),
+      _vm._v(" "),
       _c("g-icon", {
         class: _vm.iconPosition === "right" ? "ml" : "mr",
         attrs: { name: _vm.icon },

@@ -8,7 +8,6 @@
 export default {
   mounted(){
     for(let note of this.$el.children){
-      console.log(note)
       if(note.nodeName !== 'BUTTON'){
         console.warn('g-button-group的子元素应该全是g-button,但是你写的是' + note.nodeName)
       }

@@ -1,7 +1,21 @@
 <template>
-  <button class="g-button" :dir=" iconPosition === 'right' ? 'rtl' : 'ltr'">
-    <g-icon name="loading" class="g-icon-loading"></g-icon>
-    <g-icon :name="icon" :class="iconPosition === 'right' ? 'ml' : 'mr'"></g-icon>
+  <button class="g-button" :dir=" iconPosition === 'right' ? 'rtl' : 'ltr'" @click="$emit('click')">
+    <!--    loading-->
+    <g-icon
+        name="loading"
+        class="g-icon-loading"
+        :class="iconPosition === 'right' ? 'ml' : 'mr'"
+        v-if="loading">
+    </g-icon>
+
+    <!--    icon-->
+    <g-icon
+        :name="icon"
+        v-if="icon && !loading"
+        :class="iconPosition === 'right' ? 'ml' : 'mr'">
+    </g-icon>
+
+    <!--    文字-->
     <slot></slot>
   </button>
 </template>
@@ -19,6 +33,10 @@
         validator(value){
           return (value === 'left' || value === 'right')
         }
+      },
+      loading:{
+        type: Boolean,
+        default: false
       }
     },
   }
@@ -35,6 +53,8 @@
     padding: 0 .6em;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 
     &:hover{
       border-color: var(--border-color-hover);

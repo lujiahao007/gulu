@@ -8,6 +8,8 @@
   padding: 0 0.6em;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 .g-button:hover {
   border-color: var(--border-color-hover);

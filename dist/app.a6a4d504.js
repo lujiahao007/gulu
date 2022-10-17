@@ -12254,7 +12254,19 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: ['icon', 'iconPosition']
+  props: {
+    icon: {
+      type: String,
+      default: ''
+    },
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator: function validator(value) {
+        return value === 'left' || value === 'right';
+      }
+    }
+  }
 };
 exports.default = _default;
         var $416fae = exports.default || module.exports;

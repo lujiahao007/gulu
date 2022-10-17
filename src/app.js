@@ -17,7 +17,9 @@ new Vue ({
 
 
 import chai from 'chai'
+import spies from 'chai-spies'
 const expect = chai.expect
+chai.use(spies)
 //单元测试
 {
     const Constructor = Vue.extend(Button)
@@ -63,6 +65,23 @@ const expect = chai.expect
     button.$mount(div)
     let href = button.$el.getAttribute('dir')
     expect(href).to.eq('rtl')
+    //销毁
+    button.$el.remove()
+    button.$destroy()
+}
+{
+    const Constructor = Vue.extend(Button)
+    const button = new Constructor({
+        propsData: {
+            icon: 'set'
+        }
+    })
+    button.$mount()
+    let spy = chai.spy(function (){})
+
+    button.$on('click',spy)
+    button.$el.click();
+    expect(spy).to.have.been.called();
     //销毁
     button.$el.remove()
     button.$destroy()

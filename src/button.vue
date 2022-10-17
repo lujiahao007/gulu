@@ -1,8 +1,6 @@
 <template>
   <button class="g-button" :dir=" iconPosition === 'right' ? 'rtl' : 'ltr'">
-    <svg class="icon" :class="iconPosition === 'right' ? 'ml' : 'mr'">
-      <use :xlink:href=" '#i' +icon"></use>
-    </svg>
+    <g-icon :name="icon" :class="iconPosition === 'right' ? 'ml' : 'mr'"></g-icon>
     <slot></slot>
   </button>
 </template>
@@ -45,10 +43,6 @@
     }
     &:focus{
       outline: none;
-    }
-    .icon{
-      width: 1em;
-      height: 1em;
     }
     .ml{
       margin-left: .3em;

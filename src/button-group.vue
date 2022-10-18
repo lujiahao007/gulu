@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'GuluButtonGroup',
   mounted(){
     for(let note of this.$el.children){
       if(note.nodeName !== 'BUTTON'){

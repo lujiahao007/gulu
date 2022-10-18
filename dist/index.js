@@ -234,6 +234,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 var _default = {
+  name: 'GuluButtonGroup',
   mounted: function mounted() {
     var _iterator = _createForOfIteratorHelper(this.$el.children),
       _step;

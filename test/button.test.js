@@ -1,4 +1,4 @@
-import sinon from "sinon";
+// import sinon from "sinon";
 
 const expect = chai.expect;
 import Vue from 'vue'

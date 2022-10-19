@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.3.0",
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "chai-spies": "^1.0.0",
     "karma": "^6.4.1",
     "karma-chai": "^0.1.0",

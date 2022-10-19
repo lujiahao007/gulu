@@ -162,7 +162,7 @@ exports.default = _default;
     
         /* template */
         Object.assign($6cfee7, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"g-icon"},[_c('use',{attrs:{"xlink:href":("#i" + _vm.name)}})])}
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"g-icon frank"},[_c('use',{attrs:{"xlink:href":("#i" + _vm.name)}})])}
 var staticRenderFns = []
 
           return {

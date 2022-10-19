@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "start": "npx parcel build index.js --no-cache --no-minify",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },

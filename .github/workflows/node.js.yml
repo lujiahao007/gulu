@@ -27,6 +27,6 @@ jobs:
         node-version: '12.19.0'
         cache: 'npm'
     - run: npm ci
-
+    - run: npm install
     - run: npx parcel build index.html --no-cache
     - run: npm test

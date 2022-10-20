@@ -12564,6 +12564,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   name: 'GuluInput',
   components: {
@@ -12574,6 +12584,9 @@ var _default = {
       type: String
     },
     disabled: {
+      type: Boolean
+    },
+    readonly: {
       type: Boolean
     },
     error: {
@@ -12599,8 +12612,22 @@ exports.default = _default;
     { staticClass: "wrapper", class: { error: _vm.error } },
     [
       _c("input", {
-        attrs: { type: "text", disabled: _vm.disabled },
+        attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
         domProps: { value: _vm.value },
+        on: {
+          change: function ($event) {
+            return _vm.$emit("change", $event)
+          },
+          input: function ($event) {
+            return _vm.$emit("input", $event)
+          },
+          focus: function ($event) {
+            return _vm.$emit("focus", $event)
+          },
+          blur: function ($event) {
+            return _vm.$emit("blur", $event)
+          },
+        },
       }),
       _vm._v(" "),
       _vm.error

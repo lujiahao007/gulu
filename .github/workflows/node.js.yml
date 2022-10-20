@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm install
-    - run: sed '86c \".\/package.json\":\".\/package.json\"' ./node_modules/sinon/package.json
-    - run: sed -n '85,87p' ./node_modules/sinon/package.json
+    - run: sed '121c "./package.json":"./package.json"' ./node_modules/sinon/package.json
+    - run: sed -n '120,122p' ./node_modules/sinon/package.json
     - run: npx parcel build index.html --no-cache
     - run: npm test

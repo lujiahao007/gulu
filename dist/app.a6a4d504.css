@@ -49,22 +49,57 @@
 .g-button .loading[data-v-416fae] {
   animation: spin-data-v-416fae 2s infinite linear;
 }
-.g-button-group {
+.g-button-group[data-v-222d1f] {
   display: inline-flex;
   vertical-align: middle;
   margin-left: 1px;
 }
-.g-button-group .g-button {
+.g-button-group .g-button[data-v-222d1f] {
   border-radius: 0;
   margin-left: -1px;
 }
-.g-button-group .g-button:first-child {
+.g-button-group .g-button[data-v-222d1f]:first-child {
   border-radius: 4px 0 0 4px;
 }
-.g-button-group .g-button:last-child {
+.g-button-group .g-button[data-v-222d1f]:last-child {
   border-radius: 0 4px 4px 0;
 }
-.g-button-group .g-button:hover {
+.g-button-group .g-button[data-v-222d1f]:hover {
   position: relative;
   z-index: 1;
+}
+.wrapper[data-v-79268f] {
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+.wrapper.error > input[data-v-79268f] {
+  border-color: #f1453d;
+}
+.wrapper .icon-error[data-v-79268f] {
+  margin-left: 0.5em;
+  fill: #f1453d;
+  font-size: 15px;
+}
+.wrapper .errorMessage[data-v-79268f] {
+  color: #f1453d;
+}
+.wrapper > input[data-v-79268f] {
+  height: 32px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: inherit;
+}
+.wrapper > input[data-v-79268f]:hover {
+  border-color: #666;
+}
+.wrapper > input[data-v-79268f]:focus {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+.wrapper > input[data-v-79268f]:disabled {
+  border-color: #999;
+  color: #999;
+  cursor: not-allowed;
 }

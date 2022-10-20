@@ -88,9 +88,14 @@ describe('Input', () => {
                 vm.$on(item,callback)
                 //出发input的change 事件
                 let event = new Event(item)
+                Object.defineProperty(
+                    event,'target',{
+                      value: {value: 'hi'}, enumerable: true
+                    }
+                )
                 let inputEvent = vm.$el.querySelector('input')
                 inputEvent.dispatchEvent(event)
-                expect(callback).to.have.been.calledWith(event)  //测试change事件有回调，并且测试了change事件的第一个参数是event
+                expect(callback).to.have.been.calledWith('hi')  //测试change事件有回调，并且测试了change事件的第一个参数是event
             })
         })
     })

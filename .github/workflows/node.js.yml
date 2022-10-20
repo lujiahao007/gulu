@@ -16,16 +16,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [12.19.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js '15.x'
+    - name: Use Node.js 12.19.0
       uses: actions/setup-node@v3
       with:
-        node-version: '15.x'
+        node-version: '12.19.0'
         cache: 'npm'
     - run: npm ci
-    - run: parcel build index.html --no-cache
+    - run: npm install
+    - run: npx parcel build index.html --no-cache
     - run: npm test

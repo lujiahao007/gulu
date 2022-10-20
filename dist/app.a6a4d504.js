@@ -12680,10 +12680,10 @@ render._withStripped = true
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
-var _button = _interopRequireDefault(require("./button"));
-var _icon = _interopRequireDefault(require("./icon"));
-var _buttonGroup = _interopRequireDefault(require("./button-group"));
-var _input = _interopRequireDefault(require("./input"));
+var _button = _interopRequireDefault(require("./button.vue"));
+var _icon = _interopRequireDefault(require("./icon.vue"));
+var _buttonGroup = _interopRequireDefault(require("./button-group.vue"));
+var _input = _interopRequireDefault(require("./input.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _vue.default.component('g-button', _button.default);
 _vue.default.component('g-icon', _icon.default);
@@ -12704,7 +12704,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group":"src/button-group.vue","./input":"src/input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

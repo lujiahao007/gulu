@@ -27,5 +27,6 @@ jobs:
         node-version: '15.x'
         cache: 'npm'
     - run: npm ci
+    - run: npm install
     - run: parcel build index.js --no-cache --no-minify
     - run: npm test

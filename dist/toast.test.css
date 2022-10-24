@@ -1,0 +1,81 @@
+@keyframes slide-up-data-v-f43216 {
+0% {
+    opacity: 0;
+    transform: translateY(100%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0%);
+}
+}
+@keyframes slide-down-data-v-f43216 {
+0% {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0%);
+}
+}
+@keyframes fade-in-data-v-f43216 {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.gulu-toast[data-v-f43216] {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.gulu-toast.position-top[data-v-f43216] {
+  top: 0;
+}
+.gulu-toast.position-top .toast[data-v-f43216] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  animation: slide-down-data-v-f43216 300ms;
+}
+.gulu-toast.position-bottom[data-v-f43216] {
+  bottom: 0;
+}
+.gulu-toast.position-bottom .toast[data-v-f43216] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  animation: slide-up-data-v-f43216 300ms;
+}
+.gulu-toast.position-middle[data-v-f43216] {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.gulu-toast.position-middle .toast[data-v-f43216] {
+  animation: fade-in-data-v-f43216 300ms;
+}
+.toast[data-v-f43216] {
+  font-size: 14px;
+  min-height: 40px;
+  line-height: 1.8;
+  display: flex;
+  color: white;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  padding: 0 16px;
+}
+.toast .message[data-v-f43216] {
+  padding: 8px 0;
+}
+.toast .close[data-v-f43216] {
+  padding-left: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.toast .line[data-v-f43216] {
+  height: 100%;
+  border-left: 1px solid #666;
+  margin-left: 16px;
+}

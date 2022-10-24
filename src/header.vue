@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-  .layout{
+.layout{
 
-  }
+}
 </style>

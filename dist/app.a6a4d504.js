@@ -13340,7 +13340,7 @@ var _default2 = {
     onClickClose: function onClickClose() {
       this.close();
       if (this.closeButton && typeof this.closeButton.callback === 'function') {
-        // this.closeButton.callback(this)//this === toast实例
+        this.closeButton.callback(this); //this === toast实例
       }
     }
   }
@@ -13461,7 +13461,327 @@ function createToast(_ref) {
   document.body.appendChild(toast.$el);
   return toast;
 }
-},{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
+},{"./toast":"src/toast.vue"}],"src/tabs.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabs'
+};
+exports.default = _default;
+        var $1af283 = exports.default || module.exports;
+      
+      if (typeof $1af283 === 'function') {
+        $1af283 = $1af283.options;
+      }
+    
+        /* template */
+        Object.assign($1af283, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-1af283",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$1af283', $1af283);
+          } else {
+            api.reload('$1af283', $1af283);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-body.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsBody'
+};
+exports.default = _default;
+        var $61e847 = exports.default || module.exports;
+      
+      if (typeof $61e847 === 'function') {
+        $61e847 = $61e847.options;
+      }
+    
+        /* template */
+        Object.assign($61e847, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs-body" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-61e847",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$61e847', $61e847);
+          } else {
+            api.reload('$61e847', $61e847);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-head.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsHead'
+};
+exports.default = _default;
+        var $9f8eaf = exports.default || module.exports;
+      
+      if (typeof $9f8eaf === 'function') {
+        $9f8eaf = $9f8eaf.options;
+      }
+    
+        /* template */
+        Object.assign($9f8eaf, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs-head" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-9f8eaf",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$9f8eaf', $9f8eaf);
+          } else {
+            api.reload('$9f8eaf', $9f8eaf);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-item.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsItem'
+};
+exports.default = _default;
+        var $cc81ad = exports.default || module.exports;
+      
+      if (typeof $cc81ad === 'function') {
+        $cc81ad = $cc81ad.options;
+      }
+    
+        /* template */
+        Object.assign($cc81ad, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs-item" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-cc81ad",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$cc81ad', $cc81ad);
+          } else {
+            api.reload('$cc81ad', $cc81ad);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-pane.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsPane'
+};
+exports.default = _default;
+        var $7f4363 = exports.default || module.exports;
+      
+      if (typeof $7f4363 === 'function') {
+        $7f4363 = $7f4363.options;
+      }
+    
+        /* template */
+        Object.assign($7f4363, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs-pane" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-7f4363",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$7f4363', $7f4363);
+          } else {
+            api.reload('$7f4363', $7f4363);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -13477,6 +13797,11 @@ var _header = _interopRequireDefault(require("./header.vue"));
 var _sider = _interopRequireDefault(require("./sider.vue"));
 var _footer = _interopRequireDefault(require("./footer.vue"));
 var _plugin = _interopRequireDefault(require("./plugin"));
+var _tabs = _interopRequireDefault(require("./tabs"));
+var _tabsBody = _interopRequireDefault(require("./tabs-body"));
+var _tabsHead = _interopRequireDefault(require("./tabs-head"));
+var _tabsItem = _interopRequireDefault(require("./tabs-item"));
+var _tabsPane = _interopRequireDefault(require("./tabs-pane"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 // import Toast from "./toast";
 
@@ -13492,44 +13817,19 @@ _vue.default.component('g-content', _content.default);
 _vue.default.component('g-header', _header.default);
 _vue.default.component('g-sider', _sider.default);
 _vue.default.component('g-footer', _footer.default);
+_vue.default.component('g-tabs', _tabs.default);
+_vue.default.component('g-tabs-body', _tabsBody.default);
+_vue.default.component('g-tabs-head', _tabsHead.default);
+_vue.default.component('g-tabs-item', _tabsItem.default);
+_vue.default.component('g-tabs-pane', _tabsPane.default);
 new _vue.default({
   el: '#app',
-  data: {
-    loading1: false,
-    loading2: true,
-    loading3: false,
-    message: 'hi'
-  },
+  data: {},
   created: function created() {},
-  mounted: function mounted() {
-    this.$toast('hhhhhh');
-  },
-  methods: {
-    showToast1: function showToast1() {
-      this.showToast('top');
-    },
-    showToast2: function showToast2() {
-      this.showToast('middle');
-    },
-    showToast3: function showToast3() {
-      this.showToast('bottom');
-    },
-    showToast: function showToast(position) {
-      this.$toast("\u4F60\u7684\u667A\u5546\u76EE\u524D\u4E3A ".concat(parseInt(Math.random() * 100), "\u3002\u4F60\u7684\u667A\u5546\u9700\u8981\u5145\u503C\uFF01"), {
-        position: position,
-        enableHtml: false,
-        closeButton: {
-          text: '已充值',
-          callback: function callback() {
-            console.log('他说已经充值智商了');
-          }
-        },
-        autoClose: 3
-      });
-    }
-  }
+  mounted: function mounted() {},
+  methods: {}
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./header.vue":"src/header.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./plugin":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./header.vue":"src/header.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./plugin":"src/plugin.js","./tabs":"src/tabs.vue","./tabs-body":"src/tabs-body.vue","./tabs-head":"src/tabs-head.vue","./tabs-item":"src/tabs-item.vue","./tabs-pane":"src/tabs-pane.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13554,7 +13854,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61926" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50552" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -13468,14 +13468,53 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
+var _vue = _interopRequireDefault(require("vue"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 //
 //
 //
 //
 //
 var _default = {
-  name: 'GuluTabs'
+  name: 'GuluTabs',
+  props: {
+    selected: {
+      type: String,
+      required: true
+    },
+    direction: {
+      type: String,
+      default: 'horizontal',
+      validator: function validator(value) {
+        return ['horizontal', 'vertical'].indexOf(value) >= 0;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+    if (this.$children.length === 0) {
+      console && console.warn && console.warn('tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件');
+    }
+    this.$children.forEach(function (vm) {
+      if (vm.$options.name === 'GuluTabsHead') {
+        vm.$children.forEach(function (childVm) {
+          if (childVm.$options.name === 'GuluTabsItem' && childVm.name === _this.selected) {
+            _this.eventBus.$emit('update:selected', _this.selected, childVm);
+          }
+        });
+      }
+    });
+  }
 };
 exports.default = _default;
         var $1af283 = exports.default || module.exports;
@@ -13490,7 +13529,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs" })
+  return _c("div", { staticClass: "tabs" }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13499,7 +13538,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1af283",
+            _scopeId: null,
             functional: undefined
           };
         })());
@@ -13525,7 +13564,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-body.vue":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/tabs-body.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13537,9 +13576,10 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
-  name: 'GuluTabsBody'
+  name: 'GuluTabsBody',
+  inject: ['eventBus'],
+  created: function created() {}
 };
 exports.default = _default;
         var $61e847 = exports.default || module.exports;
@@ -13554,7 +13594,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-body" })
+  return _c("div", { staticClass: "tabs-body" }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13563,7 +13603,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-61e847",
+            _scopeId: null,
             functional: undefined
           };
         })());
@@ -13602,8 +13642,24 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
-  name: 'GuluTabsHead'
+  name: 'GuluTabsHead',
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+    this.eventBus.$on('update:selected', function (item, vm) {
+      var _vm$$el$getBoundingCl = vm.$el.getBoundingClientRect(),
+        width = _vm$$el$getBoundingCl.width,
+        height = _vm$$el$getBoundingCl.height,
+        top = _vm$$el$getBoundingCl.top,
+        left = _vm$$el$getBoundingCl.left;
+      _this.$refs.line.style.width = "".concat(width, "px");
+      _this.$refs.line.style.left = "".concat(left, "px");
+    });
+  }
 };
 exports.default = _default;
         var $9f8eaf = exports.default || module.exports;
@@ -13618,7 +13674,18 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-head" })
+  return _c(
+    "div",
+    { staticClass: "tabs-head" },
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "actions-wrapper" }, [_vm._t("actions")], 2),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13666,8 +13733,50 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
-  name: 'GuluTabsItem'
+  name: 'GuluTabsItem',
+  inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active,
+        disabled: this.disabled
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+    if (this.eventBus) {
+      this.eventBus.$on('update:selected', function (name) {
+        _this.active = name === _this.name;
+      });
+    }
+  },
+  methods: {
+    onClick: function onClick() {
+      if (this.disabled) {
+        return;
+      }
+      this.eventBus && this.eventBus.$emit('update:selected', this.name, this);
+      this.$emit('click', this);
+    }
+  }
 };
 exports.default = _default;
         var $cc81ad = exports.default || module.exports;
@@ -13682,7 +13791,17 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-item" })
+  return _c(
+    "div",
+    {
+      staticClass: "tabs-item",
+      class: _vm.classes,
+      attrs: { "data-name": _vm.name },
+      on: { click: _vm.onClick },
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13729,9 +13848,33 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
-  name: 'GuluTabsPane'
+  name: 'GuluTabsPane',
+  inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  props: {
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+    this.eventBus.$on('update:selected', function (name) {
+      _this.active = name === _this.name;
+    });
+  }
 };
 exports.default = _default;
         var $7f4363 = exports.default || module.exports;
@@ -13746,7 +13889,14 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-pane" })
+  return _vm.active
+    ? _c(
+        "div",
+        { staticClass: "tabs-pane", class: _vm.classes },
+        [_vm._t("default")],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13824,10 +13974,16 @@ _vue.default.component('g-tabs-item', _tabsItem.default);
 _vue.default.component('g-tabs-pane', _tabsPane.default);
 new _vue.default({
   el: '#app',
-  data: {},
+  data: {
+    selectedTab: 'sports'
+  },
   created: function created() {},
   mounted: function mounted() {},
-  methods: {}
+  methods: {
+    yyy: function yyy(event) {
+      console.log('app', event, this.selectedTab);
+    }
+  }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./header.vue":"src/header.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./plugin":"src/plugin.js","./tabs":"src/tabs.vue","./tabs-body":"src/tabs-body.vue","./tabs-head":"src/tabs-head.vue","./tabs-item":"src/tabs-item.vue","./tabs-pane":"src/tabs-pane.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

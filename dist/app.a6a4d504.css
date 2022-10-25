@@ -950,3 +950,46 @@
   border-left: 1px solid #666;
   margin-left: 16px;
 }
+.tabs {
+}
+.tabs-body {
+}
+.tabs-head[data-v-9f8eaf] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.tabs-head > .line[data-v-9f8eaf] {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid blue;
+  transition: all 350ms;
+}
+.tabs-head > .actions-wrapper[data-v-9f8eaf] {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+}
+.tabs-item[data-v-cc81ad] {
+  flex-shrink: 0;
+  padding: 0 1em;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.tabs-item.active[data-v-cc81ad] {
+  color: blue;
+  font-weight: bold;
+}
+.tabs-item.disabled[data-v-cc81ad] {
+  color: grey;
+  cursor: not-allowed;
+}
+.tabs-pane[data-v-7f4363] {
+  padding: 1em;
+}

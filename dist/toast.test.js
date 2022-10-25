@@ -276,7 +276,7 @@ describe('Toast', function () {
         done();
       });
     });
-    it('接受 closeButton', function () {
+    it('接受 closeButton', function (done) {
       var callback = sinon.fake();
       var Constructor = _vue.default.extend(_toast.default);
       var vm = new Constructor({
@@ -289,8 +289,11 @@ describe('Toast', function () {
       }).$mount();
       var closeButton = vm.$el.querySelector('.close');
       expect(closeButton.textContent.trim()).to.eq('关闭吧');
-      closeButton.click();
-      expect(callback).to.have.been.called;
+      setTimeout(function (_) {
+        closeButton.click();
+        expect(callback).to.have.been.called;
+        done();
+      }, 200);
     });
     it('接受 enableHtml', function () {
       var Constructor = _vue.default.extend(_toast.default);

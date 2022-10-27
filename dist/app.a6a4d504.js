@@ -13931,6 +13931,216 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/popover.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluPopover",
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+  mounted: function mounted() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.addEventListener('click', this.onClick);
+    } else {
+      this.$refs.popover.addEventListener('mouseenter', this.open);
+      this.$refs.popover.addEventListener('mouseleave', this.close);
+    }
+  },
+  destroyed: function destroyed() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', this.open);
+      this.$refs.popover.removeEventListener('mouseleave', this.close);
+    }
+  },
+  computed: {
+    openEvent: function openEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseenter';
+      }
+    },
+    closeEvent: function closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseleave';
+      }
+    }
+  },
+  methods: {
+    positionContent: function positionContent() {
+      var _this$$refs = this.$refs,
+        contentWrapper = _this$$refs.contentWrapper,
+        triggerWrapper = _this$$refs.triggerWrapper;
+      document.body.appendChild(contentWrapper);
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+        width = _triggerWrapper$getBo.width,
+        height = _triggerWrapper$getBo.height,
+        top = _triggerWrapper$getBo.top,
+        left = _triggerWrapper$getBo.left;
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+        height2 = _contentWrapper$getBo.height;
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + 'px';
+      contentWrapper.style.top = positions[this.position].top + 'px';
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+      this.close();
+    },
+    open: function open() {
+      var _this = this;
+      this.visible = true;
+      this.$nextTick(function () {
+        _this.positionContent();
+        document.addEventListener('click', _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener('click', this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $e3d6cf = exports.default || module.exports;
+      
+      if (typeof $e3d6cf === 'function') {
+        $e3d6cf = $e3d6cf.options;
+      }
+    
+        /* template */
+        Object.assign($e3d6cf, (function () {
+          var render = function () {
+  var _obj
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { ref: "popover", staticClass: "popover" }, [
+    _vm.visible
+      ? _c(
+          "div",
+          {
+            ref: "contentWrapper",
+            staticClass: "content-wrapper",
+            class:
+              ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
+          },
+          [_vm._t("content", null, { close: _vm.close })],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "span",
+      { ref: "triggerWrapper", staticStyle: { display: "inline-block" } },
+      [_vm._t("default")],
+      2
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-e3d6cf",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$e3d6cf', $e3d6cf);
+          } else {
+            api.reload('$e3d6cf', $e3d6cf);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13952,6 +14162,7 @@ var _tabsBody = _interopRequireDefault(require("./tabs-body"));
 var _tabsHead = _interopRequireDefault(require("./tabs-head"));
 var _tabsItem = _interopRequireDefault(require("./tabs-item"));
 var _tabsPane = _interopRequireDefault(require("./tabs-pane"));
+var _popover = _interopRequireDefault(require("./popover"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 // import Toast from "./toast";
 
@@ -13972,6 +14183,7 @@ _vue.default.component('g-tabs-body', _tabsBody.default);
 _vue.default.component('g-tabs-head', _tabsHead.default);
 _vue.default.component('g-tabs-item', _tabsItem.default);
 _vue.default.component('g-tabs-pane', _tabsPane.default);
+_vue.default.component('g-popover', _popover.default);
 new _vue.default({
   el: '#app',
   data: {
@@ -13985,7 +14197,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./header.vue":"src/header.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./plugin":"src/plugin.js","./tabs":"src/tabs.vue","./tabs-body":"src/tabs-body.vue","./tabs-head":"src/tabs-head.vue","./tabs-item":"src/tabs-item.vue","./tabs-pane":"src/tabs-pane.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./layout.vue":"src/layout.vue","./content.vue":"src/content.vue","./header.vue":"src/header.vue","./sider.vue":"src/sider.vue","./footer.vue":"src/footer.vue","./plugin":"src/plugin.js","./tabs":"src/tabs.vue","./tabs-body":"src/tabs-body.vue","./tabs-head":"src/tabs-head.vue","./tabs-item":"src/tabs-item.vue","./tabs-pane":"src/tabs-pane.vue","./popover":"src/popover.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -14010,7 +14222,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50552" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59064" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

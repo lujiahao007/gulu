@@ -127,23 +127,23 @@
 //
 //
 //手写promise.arr
-Promise.myall = (list) => {
-    let num = 0;
-    let result = []
-    return new Promise((resolve,reject)=> {
-        list.forEach((item,index) => {
-            item.then((res) => {
-                num += 1
-                result[index] = res
-                if(num === list.length){
-                    resolve(result)
-                }
-            }).catch((err) => {
-                reject(err)
-            })
-        })
-    });
-}
+// Promise.myall = (list) => {
+//     let num = 0;
+//     let result = []
+//     return new Promise((resolve,reject)=> {
+//         list.forEach((item,index) => {
+//             item.then((res) => {
+//                 num += 1
+//                 result[index] = res
+//                 if(num === list.length){
+//                     resolve(result)
+//                 }
+//             }).catch((err) => {
+//                 reject(err)
+//             })
+//         })
+//     });
+// }
 //
 //
 //

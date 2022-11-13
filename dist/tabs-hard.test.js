@@ -246,7 +246,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //
 //
 //
-// //手写promise.arr
+//手写promise.arr
 // Promise.myall = (list) => {
 //     let num = 0;
 //     let result = []

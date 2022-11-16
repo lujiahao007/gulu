@@ -83,17 +83,20 @@
 //
 // //手写简易promise
 // class Promise3 {
+//     #status = 'pending'
 //     constructor(fn) {
 //         this.resolve_arr = []
 //         this.reject_arr = []
 //
 //         const resolve = (data) => {
+//             this.#status = 'fulfilled'
 //             const fn = this.resolve_arr.shift()
 //             if(!fn) return
 //             const x = fn.call(undefined,data)
 //             resolve(x)
 //         }
 //         const reject = (data) => {
+//             this.#status = 'rejected'
 //             const fn = this.reject_arr.shift()
 //             if(!fn) return
 //             const x = fn.call(undefined, data)
@@ -115,6 +118,13 @@
 // })
 //
 // pms.then((data)=>{console.log(data)}, (data)=>{console.error(data)})
+
+
+// const pms2 = new Promise(function (resolve,reject){
+//     reject('123')
+// })
+// pms2.then((data)=>{console.log(data)}, (data)=>{console.error(data)})
+
 //
 //
 //
@@ -157,7 +167,7 @@
 //
 //
 //
-// //手写深拷贝1
+//手写深拷贝1
 // const b = JSON.parse(JSON.stringify(a));
 //
 // //手写深拷贝2
@@ -256,23 +266,23 @@
 //
 //
 //
-// //手写拖拽
-// var flag = false
-// var position = []
-// var div = document.getElementById('div')
-// div.addEventListener('mousedown',function(event){
-//     flag = true
-//     position = [event.clientX,event.clientY]
-// })
-// document.addEventListener('mousemove',function(event){
-//     if(flag){
-//         let left = event.clientX - position[0]
-//         let top = event.clientY - position[1]
-//         div.style.left = parseInt(div.style.left || 0) + left + 'px'
-//         div.style.top = parseInt(div.style.top || 0) + top + 'px'
-//         position = [event.clientX,event.clientY]
-//     }
-// })
-// document.addEventListener('mouseup',function(event){
-//     flag = false
-// })
+//手写拖拽
+var flag = false
+var position = []
+var div = document.getElementById('div')
+div.addEventListener('mousedown',function(event){
+    flag = true
+    position = [event.clientX,event.clientY]
+})
+document.addEventListener('mousemove',function(event){
+    if(flag){
+        let left = event.clientX - position[0]
+        let top = event.clientY - position[1]
+        div.style.left = parseInt(div.style.left || 0) + left + 'px'
+        div.style.top = parseInt(div.style.top || 0) + top + 'px'
+        position = [event.clientX,event.clientY]
+    }
+})
+document.addEventListener('mouseup',function(event){
+    flag = false
+})

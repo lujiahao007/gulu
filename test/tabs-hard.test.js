@@ -267,22 +267,22 @@
 //
 //
 //手写拖拽
-var flag = false
-var position = []
-var div = document.getElementById('div')
-div.addEventListener('mousedown',function(event){
-    flag = true
-    position = [event.clientX,event.clientY]
-})
-document.addEventListener('mousemove',function(event){
-    if(flag){
-        let left = event.clientX - position[0]
-        let top = event.clientY - position[1]
-        div.style.left = parseInt(div.style.left || 0) + left + 'px'
-        div.style.top = parseInt(div.style.top || 0) + top + 'px'
-        position = [event.clientX,event.clientY]
-    }
-})
-document.addEventListener('mouseup',function(event){
-    flag = false
-})
+// var flag = false
+// var position = []
+// var div = document.getElementById('div')
+// div.addEventListener('mousedown',function(event){
+//     flag = true
+//     position = [event.clientX,event.clientY]
+// })
+// document.addEventListener('mousemove',function(event){
+//     if(flag){
+//         let left = event.clientX - position[0]
+//         let top = event.clientY - position[1]
+//         div.style.left = parseInt(div.style.left || 0) + left + 'px'
+//         div.style.top = parseInt(div.style.top || 0) + top + 'px'
+//         position = [event.clientX,event.clientY]
+//     }
+// })
+// document.addEventListener('mouseup',function(event){
+//     flag = false
+// })

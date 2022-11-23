@@ -203,17 +203,20 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //
 // //手写简易promise
 // class Promise3 {
+//     #status = 'pending'
 //     constructor(fn) {
 //         this.resolve_arr = []
 //         this.reject_arr = []
 //
 //         const resolve = (data) => {
+//             this.#status = 'fulfilled'
 //             const fn = this.resolve_arr.shift()
 //             if(!fn) return
 //             const x = fn.call(undefined,data)
 //             resolve(x)
 //         }
 //         const reject = (data) => {
+//             this.#status = 'rejected'
 //             const fn = this.reject_arr.shift()
 //             if(!fn) return
 //             const x = fn.call(undefined, data)
@@ -235,6 +238,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // })
 //
 // pms.then((data)=>{console.log(data)}, (data)=>{console.error(data)})
+
+// const pms2 = new Promise(function (resolve,reject){
+//     reject('123')
+// })
+// pms2.then((data)=>{console.log(data)}, (data)=>{console.error(data)})
+
 //
 //
 //
@@ -277,7 +286,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //
 //
 //
-// //手写深拷贝1
+//手写深拷贝1
 // const b = JSON.parse(JSON.stringify(a));
 //
 // //手写深拷贝2
@@ -376,7 +385,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 //
 //
 //
-// //手写拖拽
+//手写拖拽
 // var flag = false
 // var position = []
 // var div = document.getElementById('div')
